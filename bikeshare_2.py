@@ -171,10 +171,23 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
+        display_data(df)
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
 
+def display_data(df):
+    """[display_data]: ask user for display  5 rows in dataframe
+
+    Args:
+        df ([DataFrame]): dataframe data to be displayed
+    """
+    index=0
+    user_input=input('would you like to display 5 rows of raw data?\n').lower()
+    while user_input in ['yes','y','yep','yea'] and index+5 < df.shape[0]:
+        print(df.iloc[index:index+5])
+        index += 5
+        user_input = input('would you like to display more 5 rows of raw data?\n').lower()
 
 if __name__ == "__main__":
 	main()
