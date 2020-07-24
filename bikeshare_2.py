@@ -20,19 +20,20 @@ def get_filters():
     while True :
         print('Hello! Let\'s explore some US bikeshare data!')
         # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-        city = input('Enter the city you interseted in (chicago, new york city, washington)\n')
-        if CITY_DATA.get(city,0) == 0 :
-            print('You Entered invalid city name')
-            continue
+        city = input('Enter the city you interseted in (chicago, new york city, washington)\n').lower()
+        while CITY_DATA.get(city,0) == 0 :
+            print('You Entered invalid city name ,you should enter a valid city name from (chicago, new york city, washington) \n').lower()
+
         # get user input for month (all, january, february, ... , june)
-        month = input('Enter the month you interseted in (january, february, march, april, may, june) or all \n')
-        if (month not in Months) and month != 'all' :
-            print('You Entered invalid Month name')
-            continue
+
+        month = input('Enter the month you interseted in (january, february, march, april, may, june) or all \n').lower()
+        while(month not in Months) and month != 'all' :
+            month = input('You entered an invalid Month name , you should enter a valid month name or \n').lower()
+
         # get user input for day of week (all, monday, tuesday, ... sunday)
-        day = input('Enter the day of week you interseted in (monday, tuesday, wednesday, thuresday, friday, saturday, sunday) or all\n')
-        if (day not in Weekend_days) and day != 'all':
-            print('You Entered invalid Month name')
+        day = input('Enter the day of week you interseted in (monday, tuesday, wednesday, thuresday, friday, saturday, sunday) or all\n').lower()
+        while(day not in Weekend_days) and day != 'all':
+            day = input('You entered an invalid Day name, you should enter a valid day name or all\n').lower()
             continue
         break
     print('-'*140)
