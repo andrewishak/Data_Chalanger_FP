@@ -59,7 +59,7 @@ def load_data(city, month, day):
 
     df['month'] = df['Start Time'].dt.month
 
-    df['weekend_day'] = df['Start Time'].dt.day_name()
+    df['weekend_day'] = df['Start Time'].dt.weekend_day
 
     if month != 'all':
         df = df[df['month']==Months.index(month) + 1]
@@ -147,7 +147,7 @@ def user_stats(df,city):
 
     # Display counts of user types
     user_types = df['User Type'].value_counts()
-    print('Counts of Subscriber : {} , Customer : {} , Dependent : {}'.format(user_types['Subscriber'], user_types['Customer'], user_types['Dependent']))
+    print('Counts of Subscriber : {} , Customer : {}'.format(user_types['Subscriber'], user_types['Customer']))
 
 
     # Display counts of gender
