@@ -59,7 +59,7 @@ def load_data(city, month, day):
 
     df['month'] = df['Start Time'].dt.month
 
-    df['weekend_day'] = df['Start Time'].dt.weekend_day
+    df['weekend_day'] = df['Start Time'].dt.weekday
 
     if month != 'all':
         df = df[df['month']==Months.index(month) + 1]
